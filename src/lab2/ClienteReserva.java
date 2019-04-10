@@ -32,14 +32,14 @@ public class ClienteReserva {
             switch(opcion){
                 case 1:
                     //System.out.println("Introducir la fecha de inicio en el siguiente formato (dd-mm-yy): \n");
-                    inicio = sn.nextLine();
+                    //inicio = sn.nextLine();
                     //System.out.println("Introducir la fecha de fin en el siguiente formato (dd-mm-yy): \n");
-                    fin = sn.nextLine();
+                    //fin = sn.nextLine();
                     //System.out.println("Introducir la fecha de cotizacion en el siguiente formato (dd-mm-yy): \n");
-                    fechacotizacion = sn.nextLine();
-                    //inicio = "26-06-19";
-                    //fin = "29-06-19";
-                    //fechacotizacion = "26-06-19";
+                    //fechacotizacion = sn.nextLine();
+                    inicio = "26-06-19";
+                    fin = "29-06-19";
+                    fechacotizacion = "26-06-19";
                     double resp = reserva.Cotizar(inicio,fin,fechacotizacion);
                     if(resp == 0){
                         System.out.println("Fechas incorrectas");
@@ -48,14 +48,18 @@ public class ClienteReserva {
                     }
                 break;
                 case 2:
-                    System.out.println("Introducir la fecha de inicio: \n");
-                    inicio = sn.nextLine();
-                    System.out.println("Introducir la fecha de fin: \n");
-                    fin = sn.nextLine();
-                    System.out.println("Introducir la fecha id de cliente: \n");
-                    idcliente = sn.nextLine();
-                    System.out.println("Introducir la fecha de compra: \n");
-                    fechacompra = sn.nextLine();
+                    //System.out.println("Introducir la fecha de inicio en el siguiente formato (dd-mm-yy): \n");
+                    //inicio = sn.nextLine();
+                    //System.out.println("Introducir la fecha de fin en el siguiente formato (dd-mm-yy): \n");
+                    //fin = sn.nextLine();
+                    //System.out.println("Introducir id de cliente: \n");
+                    //idcliente = sn.nextLine();
+                    //System.out.println("Introducir la fecha de compra en el siguiente formato (dd-mm-yy): \n");
+                    //fechacompra = sn.nextLine();
+                    inicio = "26-06-19";
+                    idcliente = "3";
+                    fin = "29-06-19";
+                    fechacompra = "26-06-19";
                     System.out.println( reserva.Reservar(inicio,fin,idcliente,fechacompra));
                 break;
                 case 3:

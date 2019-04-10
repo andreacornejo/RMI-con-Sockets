@@ -1,10 +1,11 @@
 package lab2;
 
+import java.net.ServerSocket;
 import java.rmi.*;
 import java.rmi.registry.*;
 import java.rmi.server.*;
-import java.util.*;
-
+import java.io.*;
+import java.net.*;
 /**
  *
  * @author andrea
@@ -93,9 +94,34 @@ public class ServidorReserva
 
     @Override
     public String Reservar(String inicio, String fin, String idcliente, String fechacompra){
+        int port = 2027;
+        String reserva = "";
+        double costo;
+        try{
+            costo = Cotizar(inicio,fin,fechacompra);
+            Socket client = new Socket("localhost", port); 
+            InputStreamReader isr = new InputStreamReader(System.in);
+            BufferedReader br = new BufferedReader(isr);
+            PrintStream toServer = new PrintStream(client.getOutputStream());
+            BufferedReader fromServer = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            toServer.println(idcliente);//mandar idcliente al Servidor de Clientes
+            String result = fromServer.readLine();//respuesta del Servidor
+            double saldo = Double.parseDouble(result);
+            System.out.println(saldo);
+            System.out.println(costo);
+            if(costo <= saldo){
+                reserva = "Compra Exitosa";
+            }
+            else{
+                reserva = "Compra Fallida";
+            }
+            
+        }
+        catch(IOException e){
+            System.out.println(e.getMessage());
+        }
         
-        
-       return "";
+       return reserva;
     }
     
     public static void main(String args[]) { 
